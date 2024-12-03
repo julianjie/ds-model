@@ -13,6 +13,11 @@ CORS(app)  # Mengizinkan semua domain
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
 
+# Endpoint untuk halaman home /
+@app.route('/')
+def welcome():
+    return "<h1>Selamat Datang di API DS Model</h1>"
+
 # Endpoint untuk memprediksi diabetes
 @app.route('/predict', methods=['POST'])
 def predict_diabetes():
